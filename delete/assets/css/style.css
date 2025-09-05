@@ -1,0 +1,151 @@
+
+.khopa_menu {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(50%);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+
+/*second section*/
+.transition-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.transition-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: #ff6600;
+}
+
+@media (min-width: 768px) {
+  .row.justify-content-center .col-md-4 {
+    flex: 0 0 auto;
+    width: 33.3333%;
+  }
+}
+
+/* volenteer sec */
+.volunteer-section {
+  background-image: url(../../images/ngo-7.jpg);
+}
+
+/*partner section */
+#partnerCarousel img {
+  max-height: 80px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+#partnerCarousel img:hover {
+  transform: scale(1.05);
+}
+
+.volunteer-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.volunteer-bg {
+  background-image: url('.../images/ngo-7.jpg') no-repeat center center/cover;
+  z-index: 1;
+}
+
+.overlay {
+  background-color: rgba(40, 37, 40, 0.6);
+  z-index: 2;
+}
+
+.volunteer-section .container {
+  z-index: 3;
+  color: white;
+}
+
+.common_btn {
+
+  background-color: #f77f00 !important;
+  color: #000 !important;
+}
+
+.common_btn:hover {
+  background-color: #f77f00 !important;
+  color: #fff !important;
+  transform: scale(1.05) !important;
+}
+
+.main-content .h {
+  color: #ff6600;
+}
+
+/* Motive */
+.img-motive {
+  position: relative;
+
+}
+
+.img-motive-1 {
+  position: absolute;
+  top: -50px;
+  left: 50px;
+  z-index: 0;
+  width: 400px;
+  height: 500px;
+  
+}
+
+/* footer */
+.footer {
+  background-color: rgb(5, 48, 5)
+}
+
+.footerlist {
+  color: yellow;
+}
+
+.hr {
+  color: white;
+}
+
+/* middle content */
+.Khopa_movements {
+  color:rgb(5, 48, 5);
+}
+
+/* newletter */
+.Newsletter {
+  height: "90px";
+  width: "90px";
+  color: white;
+  background-color: #ff6600;
+
+}
+
+/* journy*/
+.img {
+  background-image: url('../../images/NGO-3.jpg');
+  height: 500PX;
+}
+.Journey_height{
+  height: 570px;
+}
+.proprty_new:hover
+{
+  background-color:#f77f00;
+  border-radius: 1rem;
+}
