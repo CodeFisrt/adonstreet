@@ -1,13 +1,15 @@
 import { Component, signal } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
+// import { Header } from './shared/header/header';
+// import { Footer } from './shared/footer/footer';
+import { CommonModule, NgIf } from '@angular/common';
 import { Header } from './shared/header/header';
 import { Footer } from './shared/footer/footer';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer,NgIf],
+  imports: [RouterOutlet, Header, Footer,CommonModule],
   
   // imports: [RouterOutlet],
   templateUrl: './app.html',
