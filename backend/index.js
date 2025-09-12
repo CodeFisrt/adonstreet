@@ -228,6 +228,89 @@ app.delete("/hoardings/:id", (req, res) => {
   });
 });
 
+// user form
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *         name:
+ *           type: string
+ *         email:
+ *           type: string
+ *         password:
+ *           type: string
+ */
+
+/**
+ * @swagger
+ * /users:
+ *   post:
+ *     summary: Create a new user (Sign Up)
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       200:
+ *         description: User created successfully
+ */
+app.post("/users", (req, res) => {
+  const data = req.body;
+  const sql = "INSERT INTO users (name, email, password) VALUES (?,?,?)";
+  db.query(sql, [data.name, data.email, data.password], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "User added", id: result.insertId });
+  });
+});
+
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Get all users
+ *     responses:
+ *       200:
+ *         description: List of users
+ */
+app.get("/users", (req, res) => {
+  const sql = "SELECT id, name, email, password FROM users";
+  db.query(sql, (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     summary: Get user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: integer
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: User details
+ */
+app.get("/users/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("SELECT id, name, email, password FROM users WHERE id = ?", [id], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results[0]);
+  });
+});
+
 
 app.listen(3000, () => {
   console.log(" Server running on http://localhost:3000");

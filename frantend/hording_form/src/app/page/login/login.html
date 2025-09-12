@@ -1,0 +1,80 @@
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center bg-light">
+  <div class="row shadow-lg rounded-4 overflow-hidden w-75">
+
+
+    <div class="col-md-6 bg-white p-5">
+      <h3 class="text-center text-primary mb-4 fw-semibold">Create Your Account</h3>
+
+      <form #signForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control rounded-2 shadow-sm" name="name" #name="ngModel"
+            [(ngModel)]="user.name" required minlength="3" />
+          <div class="text-danger small" *ngIf="name.touched || name.dirty">
+            <span *ngIf="name.errors?.['required']">This field is required</span>
+            <span *ngIf="name.errors?.['minlength']">Minimum 3 characters required</span>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control rounded-2 shadow-sm" name="email" #email="ngModel"
+            [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+          <div class="text-danger small" *ngIf="email.touched || email.dirty">
+            <span *ngIf="email.errors?.['required']">This field is required</span>
+            <span *ngIf="email.errors?.['pattern']">Invalid email format</span>
+          </div>
+        </div>
+
+
+        <div class="mb-4">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control rounded-2 shadow-sm" name="password"
+            #password="ngModel" [(ngModel)]="user.password" required minlength="6" />
+          <div class="text-danger small" *ngIf="password.touched || password.dirty">
+            <span *ngIf="password.errors?.['required']">This field is required</span>
+            <span *ngIf="password.errors?.['minlength']">Minimum 6 characters required</span>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary px-4" [disabled]="signForm.invalid">
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="col-md-6 bg-primary text-white d-flex flex-column align-items-center justify-content-center p-5">
+      <h2 class="fw-bold">Welcome!</h2>
+      <p>Begin Your Visibility Journey</p>
+      <a class="btn btn-light text-primary fw-bold px-4 text-decoration-none mt-3" routerLink="/signin">Sign In</a>
+    </div>
+  </div>
+</div>
+
+<!-- User Records Table -->
+<div class="container my-5">
+  <h4 class="mb-3 text-center text-primary">User Records</h4>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped align-middle">
+      <thead class="table-dark text-center">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userData" class="text-center">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
