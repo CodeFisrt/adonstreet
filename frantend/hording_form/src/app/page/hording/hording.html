@@ -1,1 +1,187 @@
-<p>hording works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+      <div class="card shadow-lg rounded-4 border-0">
+        <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+          <h4 class="mb-0">Add Hoarding</h4>
+        </div>
+        <div class="card-body p-4">
+
+          <form #hoardingForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Hoarding Name</label>
+              <input type="text" class="form-control" name="h_name" [(ngModel)]="hoarding.h_name" #h_name="ngModel"
+                required minlength="3" maxlength="50" />
+              <div *ngIf="h_name.invalid && h_name.touched" class="text-danger small mt-1">
+                <div *ngIf="h_name.errors?.['required']">Name is required</div>
+                <div *ngIf="h_name.errors?.['minlength']">Minimum 3 characters required</div>
+                <div *ngIf="h_name.errors?.['maxlength']">Maximum 50 characters allowed</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Address</label>
+              <input type="text" class="form-control" name="address" [(ngModel)]="hoarding.address" #address="ngModel"
+                required />
+              <div *ngIf="address.invalid && address.touched" class="text-danger small mt-1">
+                Address is required
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">City</label>
+                <input type="text" class="form-control" name="city" [(ngModel)]="hoarding.city" #city="ngModel" required
+                  pattern="^[A-Za-z ]+$" />
+                <div *ngIf="city.invalid && city.touched" class="text-danger small mt-1">
+                  <div *ngIf="city.errors?.['required']">City is required</div>
+                  <div *ngIf="city.errors?.['pattern']">Only letters allowed</div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">State</label>
+                <input type="text" class="form-control" name="state" [(ngModel)]="hoarding.state" #state="ngModel"
+                  required pattern="^[A-Za-z ]+$" />
+                <div *ngIf="state.invalid && state.touched" class="text-danger small mt-1">
+                  <div *ngIf="state.errors?.['required']">State is required</div>
+                  <div *ngIf="state.errors?.['pattern']">Only letters allowed</div>
+                </div>
+              </div>
+            </div>
+
+            < <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Latitude</label>
+                <input type="text" class="form-control" name="latitude" [(ngModel)]="hoarding.latitude"
+                  #latitude="ngModel" required />
+                <div *ngIf="latitude.invalid && latitude.touched" class="text-danger small mt-1">
+                  Latitude is required
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Longitude</label>
+                <input type="text" class="form-control" name="longitude" [(ngModel)]="hoarding.longitude"
+                  #longitude="ngModel" required />
+                <div *ngIf="longitude.invalid && longitude.touched" class="text-danger small mt-1">
+                  Longitude is required
+                </div>
+              </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Size</label>
+          <input type="text" class="form-control" name="size" [(ngModel)]="hoarding.size" #size="ngModel" required />
+          <div *ngIf="size.invalid && size.touched" class="text-danger small mt-1">
+            Size is required
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Owner Name</label>
+            <input type="text" class="form-control" name="owner_name" [(ngModel)]="hoarding.owner_name"
+              #owner_name="ngModel" required />
+            <div *ngIf="owner_name.invalid && owner_name.touched" class="text-danger small mt-1">
+              Owner name is required
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Contact Person</label>
+            <input type="text" class="form-control" name="contact_person" [(ngModel)]="hoarding.contact_person"
+              #contact_person="ngModel" required />
+            <div *ngIf="contact_person.invalid && contact_person.touched" class="text-danger small mt-1">
+              Contact person is required
+            </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Contact Number</label>
+          <input type="text" class="form-control" name="contact_number" [(ngModel)]="hoarding.contact_number"
+            #contact_number="ngModel" required pattern="^[0-9]{10}$" />
+          <div *ngIf="contact_number.invalid && contact_number.touched" class="text-danger small mt-1">
+            <div *ngIf="contact_number.errors?.['required']">Contact number is required</div>
+            <div *ngIf="contact_number.errors?.['pattern']">Must be a valid 10-digit number</div>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Rental Cost</label>
+          <input type="number" class="form-control" name="rental_cost" [(ngModel)]="hoarding.rental_cost"
+            #rental_cost="ngModel" required min="100" />
+          <div *ngIf="rental_cost.invalid && rental_cost.touched" class="text-danger small mt-1">
+            <div *ngIf="rental_cost.errors?.['required']">Rental cost is required</div>
+            <div *ngIf="rental_cost.errors?.['min']">Minimum cost must be 100</div>
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Status</label>
+          <select class="form-select" name="status" [(ngModel)]="hoarding.status" #status="ngModel" required>
+            <option value="Available">Available</option>
+            <option value="Booked">Booked</option>
+            <option value="Under Maintenance">Under Maintenance</option>
+          </select>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Contract Start Date</label>
+            <input type="date" class="form-control" name="contract_start_date"
+              [(ngModel)]="hoarding.contract_start_date" #contract_start_date="ngModel" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Contract End Date</label>
+            <input type="date" class="form-control" name="contract_end_date" [(ngModel)]="hoarding.contract_end_date"
+              #contract_end_date="ngModel" required />
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Ad Start Date</label>
+            <input type="date" class="form-control" name="ad_start_date" [(ngModel)]="hoarding.ad_start_date"
+              #ad_start_date="ngModel" required />
+          </div>
+          <div class="col-md-6 mb-3">
+            <label class="form-label fw-semibold">Ad End Date</label>
+            <input type="date" class="form-control" name="ad_end_date" [(ngModel)]="hoarding.ad_end_date"
+              #ad_end_date="ngModel" required />
+          </div>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Notes</label>
+          <textarea class="form-control" rows="3" name="notes" [(ngModel)]="hoarding.notes"></textarea>
+        </div>
+
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Created At</label>
+          <input type="text" class="form-control" name="created_at" [(ngModel)]="hoarding.created_at" disabled />
+        </div>
+
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary px-5 py-2 fw-semibold" [disabled]="hoardingForm.invalid">
+            <i class="bi bi-save me-2"></i> Save Hoarding
+          </button>
+        </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
