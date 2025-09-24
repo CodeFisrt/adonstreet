@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Hoarding } from './hording';
+import { Finished } from './finished';
 
-describe('Hording', () => {
-  let component: Hoarding;
-  let fixture: ComponentFixture<Hoarding>;
+describe('Finished', () => {
+  let component: Finished;
+  let fixture: ComponentFixture<Finished>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Hoarding]
+      imports: [Finished]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Hoarding);
+    fixture = TestBed.createComponent(Finished);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

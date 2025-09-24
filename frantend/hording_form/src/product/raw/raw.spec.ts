@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Hoarding } from './hording';
+import { Raw } from './raw';
 
-describe('Hording', () => {
-  let component: Hoarding;
-  let fixture: ComponentFixture<Hoarding>;
+describe('Raw', () => {
+  let component: Raw;
+  let fixture: ComponentFixture<Raw>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Hoarding]
+      imports: [Raw]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Hoarding);
+    fixture = TestBed.createComponent(Raw);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

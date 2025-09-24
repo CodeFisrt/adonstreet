@@ -1,0 +1,20 @@
+
+
+
+
+<div>
+  <h1>crud-opretion</h1>
+  
+    <input [(ngModel)]="taskName" placeholder="Enter value" /> <br><hr>
+    <button (click)="addTask()">
+     Add
+    </button>
+  
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{ task.name }}
+        <button (click)="editTask(task)">Edit</button>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </li>
+    </ul>
+  </div>

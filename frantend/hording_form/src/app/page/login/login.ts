@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class login {
  
   private apiUrl = 'http://localhost:3000/users'; 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
     this.getData();
   }
 
@@ -31,6 +32,7 @@ export class login {
       next: (res: any) => {
         console.log('Response:', res);
         alert('User saved successfully');
+        this.router.navigateByUrl('/hoarding');
         this.user = { name: '', email: '', password: '' }; 
         this.getData(); 
       },

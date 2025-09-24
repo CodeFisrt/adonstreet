@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { login} from './page/login/login';
 import { HttpClientModule } from '@angular/common/http';
 import { Hoarding } from './page/hording/hording';
+import { Dashboard } from './page/dashboard/dashboard';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HttpClientModule, Hoarding,login],
+  imports: [RouterOutlet, HttpClientModule,RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Hoarding } from './hording';
+import { CrudOpretion } from './crud-opretion';
 
-describe('Hording', () => {
-  let component: Hoarding;
-  let fixture: ComponentFixture<Hoarding>;
+describe('CrudOpretion', () => {
+  let component: CrudOpretion;
+  let fixture: ComponentFixture<CrudOpretion>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Hoarding]
+      imports: [CrudOpretion]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Hoarding);
+    fixture = TestBed.createComponent(CrudOpretion);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
