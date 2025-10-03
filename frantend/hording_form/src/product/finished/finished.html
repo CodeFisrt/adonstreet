@@ -1,2 +1,5 @@
 <p>finished works!</p>
-<app-raw></app-raw>
+
+@if (evenData?.length>0) {
+<app-raw [evdata]="evenData" (name)="name($event)"></app-raw>
+}

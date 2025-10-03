@@ -25,7 +25,8 @@ export const routes: Routes = [
         component: CrudOpretion
 
     },
-    { path: 'product',loadChildren: () => import('../product/product-module').then(m => m.ProductModule) },
-         
+    { path: 'product', loadChildren: () => import('../product/product-module').then(m => m.ProductModule) },
 
+    { path: 'production', loadChildren: () => import('../app/production/production-module').then(m => m.ProductionModule) },
+ 
 ];
