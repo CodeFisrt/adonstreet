@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Focus } from './focus';
+import { ReForm } from './re-form';
 
-describe('Focus', () => {
-  let component: Focus;
-  let fixture: ComponentFixture<Focus>;
+describe('ReForm', () => {
+  let component: ReForm;
+  let fixture: ComponentFixture<ReForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Focus]
+      imports: [ReForm]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Focus);
+    fixture = TestBed.createComponent(ReForm);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
